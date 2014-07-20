@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test2.c                                            :+:      :+:    :+:   */
+/*   colle00.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgouault <mgouault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agagnier <agagnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/07/05 16:51:04 by mgouault          #+#    #+#             */
-/*   Updated: 2014/07/05 17:12:59 by mgouault         ###   ########.fr       */
+/*   Created: 2014/07/05 09:27:42 by agagnier          #+#    #+#             */
+/*   Updated: 2014/07/05 14:08:01 by agagnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@ void	ft_putchar(char c);
 
 void	colle(int x, int y)
 {
-	int		i;
-	int		j;
+	int a;
+	int b;
 
-	i = 1;
-	while (i <= y)
+	a = 0;
+	while (a++ < y)
 	{
-		j = 1;
-		while (j <= x)
+		b = 0;
+		while (b++ < x)
 		{
-			if ((i == 1 && j == 1) || (i == y && j == x))
+			if ((a == 1) && (b == 1))
 				ft_putchar('A');
-			else if ((i == 1 && j == x) || (i == y && j == 1))
+			else if ((a == 1) && (b == x))
 				ft_putchar('C');
-			else if (i != 1 && i != y && j != 1 && j != x)
-				ft_putchar(' ');
-			else
+			else if ((a == y) && (b == 1))
+				ft_putchar('C');
+			else if ((a == y) && (b == x))
+				ft_putchar('A');
+			else if ((a == 1) || (a == y) || (b == 1) || (b == x))
 				ft_putchar('B');
-			j++;
+			else
+				ft_putchar(' ');
 		}
 		ft_putchar('\n');
-		i++;
 	}
 }
